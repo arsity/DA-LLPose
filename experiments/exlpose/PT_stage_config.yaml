@@ -1,6 +1,6 @@
 AUTO_RESUME: True
 DATA_DIR: ''
-GPUS: (0,1,2,3) 
+GPUS: [0] 
 LOG_DIR: log
 OUTPUT_DIR: output
 PRINT_FREQ: 25
