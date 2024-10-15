@@ -52,8 +52,8 @@ class ExLPoseKeypoints(ExLPoseDataset):
             img, mask_list, oob_mask, joints_list, area, img_aug = self.transforms(
                 img, [mask], oob_mask, [joints], area, img_aug
             )
-            oob_mask = (oob_mask[:, :, [-1]]).astype(np.float_) / 255.
-            oob_mask = (~oob_mask.astype(np.bool_)).astype(np.float_)
+            oob_mask = (oob_mask[:, :, [-1]]).astype(np.float64) / 255.
+            oob_mask = (~oob_mask.astype(np.bool_)).astype(np.float64)
             oob_mask = oob_mask.transpose(2, 0, 1)
 
             heatmap, ignored = self.heatmap_generator(
