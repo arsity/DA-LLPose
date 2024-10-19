@@ -1,6 +1,6 @@
 AUTO_RESUME: True
 DATA_DIR: ''
-GPUS: [0]
+GPUS: [0,1,2,3]
 LOG_DIR: log
 OUTPUT_DIR: output
 PRINT_FREQ: 25
@@ -83,8 +83,8 @@ MODEL:
   INIT_WEIGHTS: True
   NAME: hrnet_main
   NUM_JOINTS: 14
-  PRETRAINED_MAIN: 'model/imagenet/hrnet_w32-36af842e.pth'     
-  PRETRAINED_COMP: 'model/imagenet/hrnet_w32-36af842e.pth'
+  PRETRAINED_MAIN: 'output/exlpose_kpt/hrnet_main/PT_stage_main/final_state0.pth.tar'     
+  PRETRAINED_COMP: 'output/exlpose_kpt/hrnet_comp/PT_stage_comp/final_state0.pth.tar'
   TAG_PER_JOINT: True
 TEST:
   FLIP_TEST: True
@@ -105,7 +105,7 @@ TRAIN:
   END_EPOCH: 10
   GAMMA1: 0.99
   GAMMA2: 0.0
-  IMAGES_PER_GPU: 10
+  IMAGES_PER_GPU: 8
   LR: 0.001       
   LR_FACTOR: 0.1
   LR_STEP: [90, 120]
@@ -116,6 +116,6 @@ TRAIN:
   SHUFFLE: True
   WD: 0.0001
   MAX_NUM_CENTERS: 15
-  TEACHER_THRESHOLD: 0.9
+  TEACHER_THRESHOLD: 0.8
   STAGE: 'KA'
-WORKERS: 8
+WORKERS: 4

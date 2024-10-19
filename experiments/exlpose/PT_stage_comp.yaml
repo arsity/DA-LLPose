@@ -1,6 +1,6 @@
 AUTO_RESUME: True
 DATA_DIR: ''
-GPUS: [0] 
+GPUS: [0, 1, 2, 3] 
 LOG_DIR: log
 OUTPUT_DIR: output
 PRINT_FREQ: 25
@@ -81,7 +81,7 @@ MODEL:
       NUM_CHANNELS_PERKPT: 15
       DILATION_RATE: 1
   INIT_WEIGHTS: True
-  NAME: hrnet_main
+  NAME: hrnet_comp
   NUM_JOINTS: 14
   PRETRAINED_MAIN: 'model/imagenet/hrnet_w32-36af842e.pth'     
   PRETRAINED_COMP: 'model/imagenet/hrnet_w32-36af842e.pth'
@@ -117,4 +117,4 @@ TRAIN:
   SHUFFLE: True
   WD: 0.0001
   STAGE: 'PT_WL'
-WORKERS: 8
+WORKERS: 4
