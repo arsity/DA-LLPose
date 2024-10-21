@@ -307,7 +307,7 @@ class PoseHigherResolutionNetMain(nn.Module):
             self.load_state_dict(need_init_state_dict, strict=False)
 
 
-def get_pose_net(cfg, is_train, **kwargs):
+def get_pose_net(cfg, is_train=True, **kwargs):
     model = PoseHigherResolutionNetMain(cfg, **kwargs)
     if is_train and cfg.MODEL.INIT_WEIGHTS:
         logger.info('init weights')

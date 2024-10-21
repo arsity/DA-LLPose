@@ -1,11 +1,11 @@
 AUTO_RESUME: True
-DATA_DIR: ''
-GPUS: [0,1,2,3]
+DATA_DIR: ""
+GPUS: [0, 1, 2, 3]
 LOG_DIR: log
 OUTPUT_DIR: output
 PRINT_FREQ: 25
 VERBOSE: False
-MULTIPROCESSING_DISTRIBUTED: True 
+MULTIPROCESSING_DISTRIBUTED: True
 CUDNN:
   BENCHMARK: True
   DETERMINISTIC: False
@@ -19,11 +19,11 @@ DATASET:
   MAX_NUM_PEOPLE: 30
   MAX_ROTATION: 30
   MAX_SCALE: 1.5
-  SCALE_TYPE: 'short'
+  SCALE_TYPE: "short"
   MAX_TRANSLATE: 40
   MIN_SCALE: 0.75
   NUM_JOINTS: 14
-  ROOT: '/home/haopeng/datasets/ExLPose'
+  ROOT: "/home/haopeng/datasets/ExLPose"
   TEST: all
   TRAIN: train
   OFFSET_RADIUS: 4
@@ -43,33 +43,33 @@ LOSS:
 MODEL:
   SPEC:
     FINAL_CONV_KERNEL: 1
-    PRETRAINED_LAYERS: ['*']
+    PRETRAINED_LAYERS: ["*"]
     STAGES:
       NUM_STAGES: 3
       NUM_MODULES:
-      - 1
-      - 4
-      - 3
+        - 1
+        - 4
+        - 3
       NUM_BRANCHES:
-      - 2
-      - 3
-      - 4
+        - 2
+        - 3
+        - 4
       BLOCK:
-      - BASIC
-      - BASIC
-      - BASIC
+        - BASIC
+        - BASIC
+        - BASIC
       NUM_BLOCKS:
-      - [4, 4]
-      - [4, 4, 4]
-      - [4, 4, 4, 4]
+        - [4, 4]
+        - [4, 4, 4]
+        - [4, 4, 4, 4]
       NUM_CHANNELS:
-      - [32, 64]
-      - [32, 64, 128]
-      - [32, 64, 128, 256]
+        - [32, 64]
+        - [32, 64, 128]
+        - [32, 64, 128, 256]
       FUSE_METHOD:
-      - SUM
-      - SUM
-      - SUM
+        - SUM
+        - SUM
+        - SUM
     HEAD_HEATMAP:
       BLOCK: BASIC
       NUM_BLOCKS: 1
@@ -83,13 +83,13 @@ MODEL:
   INIT_WEIGHTS: True
   NAME: hrnet_main
   NUM_JOINTS: 14
-  PRETRAINED_MAIN: 'output/exlpose_kpt/hrnet_main/PT_stage_main/final_state0.pth.tar'     
-  PRETRAINED_COMP: 'output/exlpose_kpt/hrnet_comp/PT_stage_comp/final_state0.pth.tar'
+  PRETRAINED_MAIN: "output/exlpose_kpt/hrnet_main/PT_stage_main/final_state0.pth.tar"
+  PRETRAINED_COMP: "output/exlpose_kpt/hrnet_comp/PT_stage_comp/final_state0.pth.tar"
   TAG_PER_JOINT: True
 TEST:
   FLIP_TEST: True
   IMAGES_PER_GPU: 1
-  MODEL_FILE: ''
+  MODEL_FILE: ""
   SCALE_FACTOR: [1]
   NMS_THRE: 0.15
   NMS_NUM_THRE: 8
@@ -101,12 +101,12 @@ TEST:
   DETECTION_THRESHOLD: 0.1
 TRAIN:
   BEGIN_EPOCH: 0
-  CHECKPOINT: ''
+  CHECKPOINT: ""
   END_EPOCH: 10
   GAMMA1: 0.99
   GAMMA2: 0.0
-  IMAGES_PER_GPU: 5
-  LR: 0.0001       
+  IMAGES_PER_GPU: 8
+  LR: 0.0001
   LR_FACTOR: 0.1
   LR_STEP: [90, 120]
   MOMENTUM: 0.9
@@ -117,5 +117,5 @@ TRAIN:
   WD: 0.0001
   MAX_NUM_CENTERS: 15
   TEACHER_THRESHOLD: 0.8
-  STAGE: 'KA'
+  STAGE: "KA"
 WORKERS: 4
