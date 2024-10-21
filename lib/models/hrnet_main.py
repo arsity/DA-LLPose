@@ -310,6 +310,5 @@ class PoseHigherResolutionNetMain(nn.Module):
 def get_pose_net(cfg, is_train=True, **kwargs):
     model = PoseHigherResolutionNetMain(cfg, **kwargs)
     if is_train and cfg.MODEL.INIT_WEIGHTS:
-        logger.info('init weights')
         model.init_weights(cfg.MODEL.PRETRAINED_MAIN, verbose=cfg.VERBOSE)
     return model
